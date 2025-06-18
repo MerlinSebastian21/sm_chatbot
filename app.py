@@ -29,7 +29,7 @@ with st.sidebar:
 
     if st.button("Clear Conversation", type="primary"):
         st.session_state.messages = [{"role": "assistant", "content": "Hello! I am the Simelabs AI Chatbot. How may I assist you?"}]
-        st.session_state.history_store = {}
+        # st.session_state.history_store = {}
         st.rerun()
 
 # --- 3. LOAD ENVIRONMENT VARIABLES & SECRETS ---
@@ -62,7 +62,7 @@ def get_backend_components():
     
     # Use MMR for diverse and comprehensive results
     retriever = vectorstore.as_retriever(
-        search_type="mmr",
+        search_type="similarity",
         search_kwargs={'k': 8, 'fetch_k': 20}
     )
     print("--- Vector store and retriever are ready. ---")
