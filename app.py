@@ -62,7 +62,7 @@ def get_backend_components():
     
     # Use MMR for diverse and comprehensive results
     retriever = vectorstore.as_retriever(
-        search_type="similarity",
+        search_type="mmr",
         search_kwargs={'k': 8, 'fetch_k': 20}
     )
     print("--- Vector store and retriever are ready. ---")
